@@ -11,8 +11,8 @@
   "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
-      "Rhubarb\\Scaffolds\\SecurePasswordInput\\": "src/",
-      "Rhubarb\\Scaffolds\\SecurePasswordInput\\Tests\\": "tests/"
+      "Rhubarb\\SecurePasswordInput\\": "src/",
+      "Rhubarb\\SecurePasswordInput\\Tests\\": "tests/"
     }
   },
   "repositories": {
@@ -31,6 +31,8 @@
   },
   "require": {
     "rhubarbphp/module-leaf-common-controls": "^1.0.0",
+    "rhubarbphp/scaffold-authentication": "^1.0.0",
+    "rhubarbphp/scaffold-authentication-with-roles": "^1.0.0",
     "bjeavons/zxcvbn-php": "*",
     "dropbox/zxcvbn": "*"
   },

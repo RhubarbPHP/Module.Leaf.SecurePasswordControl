@@ -1,20 +1,15 @@
 <?php
 
-namespace Rhubarb\Scaffolds\SecurePasswordInput;
+namespace Rhubarb\Scaffolds\SecurePasswordInput\Controls;
 
 use Rhubarb\Leaf\Controls\Common\Text\TextBoxView;
 
 class ZxcvbnPasswordTextBoxView extends TextBoxView
 {
-    protected function getViewBridgeName()
-    {
-        return "ZxcvbnPasswordTextBoxViewBridge";
-    }
-
     public function getDeploymentPackage()
     {
         $package = parent::getDeploymentPackage();
-        $package->resourcesToDeploy[] = __DIR__ . '/ZxcvbnPasswordTextBoxViewBridge.js';
+        $package->resourcesToDeploy[] = __DIR__ . '/../../../dropbox/zxcvbn/dist/zxcvbn.js';
         return $package;
     }
 }
