@@ -30,9 +30,9 @@
     }
   },
   "require": {
-    "rhubarbphp/rhubarb": "*",
-    "rhubarbphp/module-stem": "*",
-    "rhubarbphp/module-leaf-common-controls": "*",
+    "rhubarbphp/rhubarb": "^1.0.0",
+    "rhubarbphp/module-stem": "^1.0.0",
+    "rhubarbphp/module-leaf-common-controls": "^1.0.0",
     "bjeavons/zxcvbn-php": "*",
     "dropbox/zxcvbn": "*"
   },
