@@ -1,7 +1,12 @@
 {
   "name": "rhubarbphp/scaffold-secure-password-input",
   "description": "Provides support for secure password input.",
-  "keywords": [ "password", "rhubarb", "php", "framework" ],
+  "keywords": [
+    "password",
+    "rhubarb",
+    "php",
+    "framework"
+  ],
   "homepage": "http://www.rhubarbphp.com/",
   "license": "Apache-2.0",
   "autoload": {
@@ -10,11 +15,26 @@
       "Rhubarb\\Scaffolds\\SecurePasswordInput\\Tests\\": "tests/"
     }
   },
+  "repositories": {
+    "zxcvbn": {
+      "type": "package",
+      "package": {
+        "name": "dropbox/zxcvbn",
+        "version": "4.4.2",
+        "source": {
+          "url": "https://github.com/dropbox/zxcvbn",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    }
+  },
   "require": {
     "rhubarbphp/rhubarb": "*",
     "rhubarbphp/module-stem": "*",
-    "rhubarbphp/module-leaf": "*",
-    "rhubarbphp/module-leaf-common-controls": "*"
+    "rhubarbphp/module-leaf-common-controls": "*",
+    "bjeavons/zxcvbn-php": "*",
+    "dropbox/zxcvbn": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "3.*"
