@@ -9,7 +9,7 @@ class ZxcvbnPasswordTextBoxView extends TextBoxView
     public function getDeploymentPackage()
     {
         $package = parent::getDeploymentPackage();
-        $package->resourcesToDeploy[] = __DIR__ . '/../../../dropbox/zxcvbn/dist/zxcvbn.js';
+        $package->resourcesToDeploy[] = __DIR__ . '/../../../../dropbox/zxcvbn/dist/zxcvbn.js';
         return $package;
     }
 }
