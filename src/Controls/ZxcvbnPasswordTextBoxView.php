@@ -1,6 +1,6 @@
 <?php
 
-namespace Rhubarb\Scaffolds\SecurePasswordInput\Controls;
+namespace Rhubarb\SecurePasswordInput\Controls;
 
 use Rhubarb\Leaf\Controls\Common\Text\TextBoxView;
 
