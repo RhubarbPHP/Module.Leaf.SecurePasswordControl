@@ -37,6 +37,6 @@
     "dropbox/zxcvbn": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.*"
+    "codeception/codeception": "^2.3"
   }
 }

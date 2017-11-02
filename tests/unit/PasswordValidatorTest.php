@@ -8,6 +8,6 @@ class PasswordValidatorTest extends RhubarbTestCase
 {
     public function testExample()
     {
-        $this->assertTrue(true);
+
     }
 }
