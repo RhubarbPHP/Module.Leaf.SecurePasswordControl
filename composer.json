@@ -34,7 +34,8 @@
     "rhubarbphp/scaffold-authentication": "^1.0.0",
     "rhubarbphp/scaffold-authentication-with-roles": "^1.0.0",
     "bjeavons/zxcvbn-php": "*",
-    "dropbox/zxcvbn": "*"
+    "dropbox/zxcvbn": "*",
+    "rhubarbphp/module-jsvalidation": "^1.1"
   },
   "require-dev": {
     "codeception/codeception": "^2.3"
