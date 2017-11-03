@@ -2,7 +2,7 @@ var bridge = function (leafPath) {
     window.rhubarb.viewBridgeClasses.TextBoxViewBridge.apply(this, arguments);
 };
 
-bridge.prototype = new window.rhubarb.viewBridgeClasses.ViewBridge();
+bridge.prototype = new window.rhubarb.viewBridgeClasses.TextBoxViewBridge();
 bridge.prototype.constructor = bridge;
 
 bridge.prototype.getStandardValidator = function (targetElement) {
@@ -10,8 +10,8 @@ bridge.prototype.getStandardValidator = function (targetElement) {
     securePasswordValidator
         .require()
         .setTargetElement(targetElement)
-        .setSource(new window.rhubarb.validation.fromViewBridge(this))
-        .addTrigger(new window.rhubarb.triggers.onViewBridgeValueChanged(this))
+        .setSource(new window.rhubarb.validation.sources.fromViewBridge(this))
+        .addTrigger(new window.rhubarb.validation.triggers.onViewBridgeValueChanged(this))
         .check(this.isSecurePassword);
 
     return securePasswordValidator;
@@ -89,4 +89,4 @@ bridge.prototype.getRegexMatches = function (regex, valueToCheck) {
 };
 
 
-window.rhubarb.viewBridgeClasses.ZxcvbnTextBoxViewBridge = bridge;
+window.rhubarb.viewBridgeClasses.ZxcvbnPasswordTextBoxViewBridge = bridge;
