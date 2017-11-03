@@ -16,7 +16,7 @@ class ZxcvbnPasswordTextBoxView extends TextBoxView
     {
         $package = parent::getDeploymentPackage();
         $package->resourcesToDeploy[] = __DIR__ . '/../../../../dropbox/zxcvbn/dist/zxcvbn.js';
-        $package->resourcesToDeploy[] = __DIR__ . '/../../../../vendor/rhubarbphp/module-jsvalidation/src/validation.js';
+        $package->resourcesToDeploy[] = __DIR__ . '/../../../../rhubarbphp/module-jsvalidation/src/validation.js';
         $package->resourcesToDeploy[] = __DIR__ . '/ZxcvbnPasswordTextBoxViewBridge.js';
 
         return $package;
