@@ -6,6 +6,8 @@ use Rhubarb\Leaf\Controls\Common\Text\TextBoxView;
 
 class ZxcvbnPasswordTextBoxView extends TextBoxView
 {
+    protected $requiresStateInput = true;
+
     protected function getViewBridgeName()
     {
         return "ZxcvbnPasswordTextBoxViewBridge";
