@@ -12,13 +12,13 @@ bridge.prototype.getStandardValidator = function (targetElement) {
         .setTargetElement(targetElement)
         .setSource(new window.rhubarb.validation.sources.fromViewBridge(this))
         .addTrigger(new window.rhubarb.validation.triggers.onViewBridgeValueChanged(this))
-        .check(this.isSecurePassword);
+        .check(this.isSecurePassword.bind(this));
 
     return securePasswordValidator;
 };
 
-bridge.prototype.isSecurePassword = function () {
-    return function (value, successCallback, failureCallback) {
+bridge.prototype.isSecurePassword = function (value, successCallback, failureCallback) {
+    // return function (value, successCallback, failureCallback) {
         var validationErrors = [];
         if (this.model.minimumLength > 0) {
             if (value.length < this.model.minimumLength) {
@@ -74,7 +74,7 @@ bridge.prototype.isSecurePassword = function () {
         } else {
             successCallback();
         }
-    }
+    // }
 };
 
 bridge.prototype.getRegexMatches = function (regex, valueToCheck) {

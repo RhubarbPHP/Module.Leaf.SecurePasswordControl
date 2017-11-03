@@ -11,7 +11,6 @@ class ZxcvbnPasswordTextBoxView extends TextBoxView
         return "ZxcvbnPasswordTextBoxViewBridge";
     }
 
-
     public function getDeploymentPackage()
     {
         $package = parent::getDeploymentPackage();
