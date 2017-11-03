@@ -27,9 +27,9 @@ class ZxcvbnPasswordTextBoxModel extends TextBoxModel
     public $MAXIMUM_LENGTH_KEY = SecurePasswordInputSettings::MAXIMUM_LENGTH_KEY;
     public $MINIMUM_REQUIRED_NUMBERS_KEY = SecurePasswordInputSettings::MINIMUM_REQUIRED_NUMBERS_KEY;
     public $MINIMUM_REQUIRED_UPPERCASE_LETTERS_KEY = SecurePasswordInputSettings::MINIMUM_REQUIRED_UPPERCASE_LETTERS_KEY;
-    public $MINIMUM_REQUIRED_LOWERCASE_LETTERS_KEY = SecurePasswordInputSettings::MINI;
-    public $MINIMUM_REQUIRED_SPECIAL_CHARACTERS_LETTERS_KEY = "PasswordMinimumRequiredSpecialCharactersKey";
-    public $MINIMUM_ZXCVBN_OVERALL_SCORE_KEY = "PasswordMinimumZxcvbnOverallScoreKey";
+    public $MINIMUM_REQUIRED_LOWERCASE_LETTERS_KEY = SecurePasswordInputSettings::MINIMUM_REQUIRED_LOWERCASE_LETTERS_KEY;
+    public $MINIMUM_REQUIRED_SPECIAL_CHARACTERS_LETTERS_KEY = SecurePasswordInputSettings::MINIMUM_REQUIRED_SPECIAL_CHARACTERS_LETTERS_KEY;
+    public $MINIMUM_ZXCVBN_OVERALL_SCORE_KEY = SecurePasswordInputSettings::MINIMUM_ZXCVBN_OVERALL_SCORE_KEY;
 
     protected function getExposableModelProperties()
     {
