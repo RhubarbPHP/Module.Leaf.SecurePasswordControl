@@ -12,7 +12,7 @@
   "autoload": {
     "psr-4": {
       "Rhubarb\\SecurePasswordInput\\": "src/",
-      "Rhubarb\\SecurePasswordInput\\Tests\\": "tests/"
+      "Rhubarb\\SecurePasswordInput\\Tests\\": "tests/unit/"
     }
   },
   "repositories": {

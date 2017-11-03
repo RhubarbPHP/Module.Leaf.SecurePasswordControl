@@ -4,41 +4,86 @@ namespace Rhubarb\SecurePasswordInput\Settings;
 
 use Rhubarb\Crown\Settings;
 
+/**
+ * Container for properties used when checking a Password.
+ *
+ * @property int $minimumLength                     The minimum total length
+ * @property int $maximumLength                     The maximum total length
+ * @property int $minimumRequiredNumbers            The minimum count of numbers required
+ * @property int $minimumRequiredUppercaseLetters   The minimum count of uppercase letters required
+ * @property int $minimumRequiredLowercaseLetters   The minimum count of lowercase letters required
+ * @property int $minimumRequiredSpecialCharacters  The minimum count of special characters required
+ * @property int $minimumZxcvbnOverallScore         The minimum overall zxcvbn score
+ * @property array $validationErrorMessages         The array of validation error messages
+ */
 class SecurePasswordInputSettings extends Settings
 {
-    /**
-     *  @var int
-     *  Set the minimum length
-     */
-    public $minimumLength = 0;
+
+    public $minimumLength;
+
+    public $maximumLength;
+
+    public $minimumRequiredNumbers;
+
+    public $minimumRequiredUppercaseLetters;
+
+    public $minimumRequiredLowercaseLetters;
+
+    public $minimumRequiredSpecialCharacters;
+
+    public $minimumZxcvbnOverallScore;
+
+    public $validationErrorMessages;
+
+    protected function initialiseDefaultValues()
+    {
+        parent::initialiseDefaultValues();
+
+        $this->minimumLength = 0;
+        $this->maximumLength = 0;
+        $this->minimumRequiredNumbers = 0;
+        $this->minimumRequiredUppercaseLetters = 0;
+        $this->minimumRequiredLowercaseLetters = 0;
+        $this->minimumRequiredSpecialCharacters = 0;
+        $this->minimumZxcvbnOverallScore = 4;
+        $this->validationErrorMessages = $this->initialiseDefaultValidationErrorMessages();
+    }
 
     /**
-     *  @var int
-     *  Set the maximum length
+     * To ONLY be used when Unit Testing
      */
-    public $maximumLength = 0;
+    public function resetValuesForUnitTesting()
+    {
+        $this->minimumLength = 0;
+        $this->maximumLength = 0;
+        $this->minimumRequiredNumbers = 0;
+        $this->minimumRequiredUppercaseLetters = 0;
+        $this->minimumRequiredLowercaseLetters = 0;
+        $this->minimumRequiredSpecialCharacters = 0;
+        $this->minimumZxcvbnOverallScore = 0;
+        $this->validationErrorMessages = $this->initialiseDefaultValidationErrorMessages();
+    }
 
-    /**
-     *  @var int
-     *  Set the minimum amount of numbers
-     */
-    public $minimumRequiredNumbers = 0;
+    private function initialiseDefaultValidationErrorMessages()
+    {
+        $validationErrorMessages = [];
 
-    /**
-     *  @var int
-     *  Set the minimum amount of uppercase letters
-     */
-    public $minimumRequiredUppercaseLetters = 0;
+        $validationErrorMessages[self::MINIMUM_LENGTH_KEY] = "Password must have minimum length";
+        $validationErrorMessages[self::MAXIMUM_LENGTH_KEY] = "Password exceeds maximum length";
+        $validationErrorMessages[self::MINIMUM_REQUIRED_NUMBERS_KEY] = "Password does not contain enough numbers";
+        $validationErrorMessages[self::MINIMUM_REQUIRED_UPPERCASE_LETTERS_KEY] = "Password does not contain enough uppercase letters";
+        $validationErrorMessages[self::MINIMUM_REQUIRED_LOWERCASE_LETTERS_KEY] = "Password does not contain enough lowercase letters";
+        $validationErrorMessages[self::MINIMUM_REQUIRED_SPECIAL_CHARACTERS_LETTERS_KEY] = "Password does not contain enough special characters";
+        $validationErrorMessages[self::MINIMUM_ZXCVBN_OVERALL_SCORE_KEY] = "Password is not strong enough";
 
-    /**
-     *  @var int
-     *  Set the minimum amount of lowercase letters
-     */
-    public $minimumRequiredLowercaseLetters = 0;
+        return $validationErrorMessages;
+    }
 
-    /**
-     *  @var int
-     *  Set the minimum amount of special characters (!@#$%^&*).
-     */
-    public $minimumRequiredSpecialCharacters = 0;
+    const MINIMUM_LENGTH_KEY = "PasswordMinimumLengthKey";
+    const MAXIMUM_LENGTH_KEY = "PasswordMaximumLengthKey";
+    const MINIMUM_REQUIRED_NUMBERS_KEY = "PasswordMinimumRequiredNumbersKey";
+    const MINIMUM_REQUIRED_UPPERCASE_LETTERS_KEY = "PasswordMinimumRequiredUppercaseLettersKey";
+    const MINIMUM_REQUIRED_LOWERCASE_LETTERS_KEY = "PasswordMinimumRequiredLowercaseLettersKey";
+    const MINIMUM_REQUIRED_SPECIAL_CHARACTERS_LETTERS_KEY = "PasswordMinimumRequiredSpecialCharactersKey";
+    const MINIMUM_ZXCVBN_OVERALL_SCORE_KEY = "PasswordMinimumZxcvbnOverallScoreKey";
 }
