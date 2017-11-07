@@ -2,11 +2,12 @@
 
 namespace Rhubarb\SecurePasswordInput\Tests\Models;
 
+use Rhubarb\Crown\Encryption\HashProvider;
+use Rhubarb\Crown\Encryption\Sha512HashProvider;
 use Rhubarb\Crown\Tests\Fixtures\TestCases\RhubarbTestCase;
 use Rhubarb\Scaffolds\Authentication\User;
 use Rhubarb\SecurePasswordInput\Settings\SecurePasswordInputSettings;
 use Rhubarb\Stem\Exceptions\ModelConsistencyValidationException;
-use Rhubarb\Stem\Models\Model;
 
 abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
 {
@@ -15,6 +16,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
     protected function _before()
     {
         parent::_before();
+        HashProvider::setProviderClassName(Sha512HashProvider::class);
         SecurePasswordInputSettings::singleton()->resetValuesForUnitTesting();
     }
 
