@@ -8,10 +8,9 @@ class User extends \Rhubarb\Scaffolds\AuthenticationWithRoles\User
 {
     use SecurePasswordConsistencyValidationErrorsTrait;
 
-    protected function getConsistencyValidationErrors()
+    public function setNewPassword($password)
     {
-        $errors = parent::getConsistencyValidationErrors();
-
-        return $this->getSecurePasswordValidationErrors($errors);
+        $this->getSecurePasswordValidationErrors($password);
+        parent::setNewPassword($password);
     }
 }

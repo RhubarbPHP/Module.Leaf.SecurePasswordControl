@@ -3,13 +3,14 @@
 namespace Rhubarb\SecurePasswordInput\Tests\Models;
 
 use Rhubarb\Crown\Tests\Fixtures\TestCases\RhubarbTestCase;
+use Rhubarb\Scaffolds\Authentication\User;
 use Rhubarb\SecurePasswordInput\Settings\SecurePasswordInputSettings;
 use Rhubarb\Stem\Exceptions\ModelConsistencyValidationException;
 use Rhubarb\Stem\Models\Model;
 
 abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
 {
-    protected abstract function getUserModel(): Model;
+    protected abstract function getUserModel(): User;
 
     protected function _before()
     {
@@ -28,8 +29,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
-
+            $user->setNewPassword($user->Password);
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
             $this->assertCount(1, $exception->getErrors());
@@ -39,7 +39,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         SecurePasswordInputSettings::singleton()->minimumLength = 4;
 
         try {
-            $user->save();
+            $user->setNewPassword('test');
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -56,7 +56,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -67,7 +67,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'testing';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -84,7 +84,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -95,7 +95,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'tes1ting2';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -112,7 +112,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -123,7 +123,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'tes1tingU890U';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -140,7 +140,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -151,7 +151,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'tes1tingU890U';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -168,7 +168,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -179,7 +179,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'tes(tin..@@gU890U';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -196,7 +196,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -207,7 +207,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Password = 'tes@^ Carrot Monkey Giraffe Gorilla';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
         } catch (ModelConsistencyValidationException $exception) {
             $this->fail("");
         }
@@ -224,7 +224,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         $user->Surname = 'User';
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {
@@ -236,7 +236,7 @@ abstract class UserPasswordAuthenticationTest extends RhubarbTestCase
         SecurePasswordInputSettings::singleton()->validationErrorMessages = $validationErrorMessages;
 
         try {
-            $user->save();
+            $user->setNewPassword($user->Password);
 
             $this->fail("Expected Password Validation exception");
         } catch (ModelConsistencyValidationException $exception) {

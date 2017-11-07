@@ -8,7 +8,7 @@ use Rhubarb\Stem\Models\Model;
 
 class UserTest extends UserPasswordAuthenticationTest
 {
-    protected function getUserModel(): Model
+    protected function getUserModel(): \Rhubarb\Scaffolds\Authentication\User
     {
         return new User();
     }

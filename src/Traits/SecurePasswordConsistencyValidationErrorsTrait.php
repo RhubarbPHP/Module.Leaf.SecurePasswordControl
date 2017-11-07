@@ -4,16 +4,25 @@ namespace Rhubarb\SecurePasswordInput\Traits;
 
 use Rhubarb\SecurePasswordInput\Helpers\PasswordValidator;
 use Rhubarb\SecurePasswordInput\Settings\SecurePasswordInputSettings;
+use Rhubarb\Stem\Exceptions\ModelConsistencyValidationException;
 
 trait SecurePasswordConsistencyValidationErrorsTrait
 {
-    protected function getSecurePasswordValidationErrors(array $errors)
+    /**
+     * @param $passwordToValidate
+     * @throws ModelConsistencyValidationException
+     */
+    protected function getSecurePasswordValidationErrors($passwordToValidate)
     {
-        list($isValid, $validationKey) = PasswordValidator::validatePassword($this->Password);
+        $errors = [];
+
+        list($isValid, $validationKey) = PasswordValidator::validatePassword($passwordToValidate);
         if (!$isValid) {
             $errors["Password"] = SecurePasswordInputSettings::singleton()->validationErrorMessages[$validationKey];
         }
 
-        return $errors;
+        if (count($errors) > 0) {
+            throw new ModelConsistencyValidationException($errors);
+        }
     }
 }
