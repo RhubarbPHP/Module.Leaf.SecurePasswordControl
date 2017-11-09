@@ -8,7 +8,6 @@ bridge.prototype.constructor = bridge;
 bridge.prototype.getStandardValidator = function (targetElement) {
     var securePasswordValidator = new window.rhubarb.validation.validator();
     securePasswordValidator
-        .require()
         .setTargetElement(targetElement)
         .setSource(new window.rhubarb.validation.sources.fromViewBridge(this))
         .addTrigger(new window.rhubarb.validation.triggers.onViewBridgeValueChanged(this))
