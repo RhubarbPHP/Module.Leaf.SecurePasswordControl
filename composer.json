@@ -1,6 +1,6 @@
 {
-  "name": "rhubarbphp/module-leaf-secure-password-input",
-  "description": "Provides support for secure password input.",
+  "name": "rhubarbphp/module-leaf-secure-password-control",
+  "description": "Provides support for secure password control.",
   "keywords": [
     "password",
     "rhubarb",
